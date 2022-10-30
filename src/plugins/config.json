@@ -1,0 +1,17 @@
+{
+    "play.roompixel.com": {
+        "onJoinCommand": [
+            "join Server SKY",
+            "delay 5000",
+            "mine on"
+        ]
+    },
+    "kentangalaxy.net": {
+        "onJoinCommand": [
+            "delay 10000",
+            "closeWindow",
+            "delay 1000",
+            "join Server Survival"
+        ]
+    }
+}

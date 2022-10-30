@@ -1,0 +1,32 @@
+{
+    "servers": [
+        {
+            "host": "play.roompixel.com",
+            "port": 25565,
+            "cracked": true,
+            "version": "1.18.2"
+        },
+        {
+            "host": "kentangalaxy.net",
+            "port": 25565,
+            "cracked": true,
+            "version": "1.18.2"
+        }
+    ],
+    "bots": [
+        {
+            "username": "SkyMiner",
+            "offlinePassword": "sasasasa"
+        },
+        {
+            "username": "Ethanord2lm",
+            "offlinePassword": "sasasasa"
+        }
+    ],
+    "webServer": {
+        "port": 8081
+    },
+    "retainTextHistoryLines": 100,
+    "retainLogHistoryLines": 400,
+    "rejoinDelay": 5000
+}
