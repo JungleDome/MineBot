@@ -15,7 +15,15 @@ module.exports = (bot, options) => {
         return null;
     }
 
-    bot.on('serverAuth', async () => {
+    function debounce(func, timeout = 300) {
+        let timer;
+        return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => { func.apply(this, args); }, timeout);
+        };
+    }
+
+    bot.on('serverAuth', debounce(async () => {
         bot.logger.log('Running auto tasker tasks...');
         let taskerConfig = config[options.autoTasker.taskId];
         if (!taskerConfig)
@@ -35,5 +43,5 @@ module.exports = (bot, options) => {
             }
         }
         bot.logger.log('Auto tasker done.');
-    });
+    }), 1000);
 };

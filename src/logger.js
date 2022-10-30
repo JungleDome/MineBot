@@ -9,11 +9,17 @@ module.exports = class Logger {
         while (this.logHistory.length > this.LOGHISTORY_COUNT) {
             this.logHistory.shift();
         }
-        console.log(`${Date.now().toLocaleString()} [${level}] > ${message}`);
+        console.log(`${this.getDate()} [${level}] > ${message}`);
+    }
+
+    getDate() {
+        let date = new Date().toLocaleString('en-gb', { year: 'numeric', month: '2-digit', day: '2-digit' });
+        let time = new Date().toLocaleString('en-gb', { hour: '2-digit', hour12: false, minute: '2-digit', second: '2-digit' });
+        return `${date} ${time}`;
     }
 
     log(message) {
-        this.appendLog('INFO', message)
+        this.appendLog('INFO', message);
     }
 
     error(message) {

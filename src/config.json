@@ -28,5 +28,5 @@
     },
     "retainTextHistoryLines": 100,
     "retainLogHistoryLines": 400,
-    "rejoinDelay": 5000
+    "rejoinDelay": 60000
 }

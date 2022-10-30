@@ -7,12 +7,9 @@
 	import { success, error, warn } from './components/toast.js';
 
 	function displayDateTime(epoch) {
-		let d = new Date(epoch);
-		let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
-		let mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
-		let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
-		let time = new Intl.DateTimeFormat('en', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(d);
-		return `${da}/${mo}/${ye} ${time}`;
+		let date = new Date(epoch).toLocaleString('en-gb', { year: 'numeric', month: '2-digit', day: '2-digit' });
+		let time = new Date(epoch).toLocaleString('en-gb', { hour: '2-digit', hour12: false, minute: '2-digit', second: '2-digit' });
+		return `${date} ${time}`;
 	}
 
 	let command = "";
@@ -177,7 +174,8 @@
 		</div>
 		{:else}
 		{#each bots as { id,username,server,status }, i}
-		<div class="minebot-bot-item cursor-pointer" class:selected={id==selectedBotItem?.id} on:click={()=>{selectedBotItem = { id,username,server,status };}} on:keydown={() => {}}>
+		<div class="minebot-bot-item cursor-pointer" class:selected={id==selectedBotItem?.id} on:click={()=>
+			{selectedBotItem = { id,username,server,status };}} on:keydown={() => {}}>
 			<span title={status}
 				class="float-right {status == 'Normal' ? 'text-green-500' : status == 'Kicked' ? 'text-orange-600' : 'text-rose-600'}">⬤</span>
 			<h6 class="font-bold">{username}</h6>
@@ -215,8 +213,8 @@
 				{#if logHistory.length == 0}
 				<p>No log history yet.</p>
 				{:else}
-				{#each logHistory as { timestamp, message }, i}
-				<p>[{displayDateTime(timestamp)}] {message}</p>
+				{#each logHistory as { timestamp, level, message }, i}
+				<p>{displayDateTime(timestamp)} [{level}] > {message}</p>
 				{/each}
 
 				{/if}
