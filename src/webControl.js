@@ -72,7 +72,7 @@ module.exports = class WebControl {
                 handler: (req, res) => {
                     let onlineCount = this.botSpawner.botThreads.length;
                     let bots = this.botSpawner.botThreads.map(x => { return { id: x.id, username: x.botInfo.username, server: x.serverInfo, status: x.status }; });
-                    this.sendSuccess(res, { bots: bots, online: onlineCount});
+                    this.sendSuccess(res, { bots: bots, online: onlineCount });
                 }
             },
             {
@@ -86,7 +86,7 @@ module.exports = class WebControl {
                 handler: (req, res) => {
                     let botId = req.body['botId'];
                     let result = this.botSpawner.getBotInfo(botId);
-                    
+
                     this.sendSuccess(res, result);
                 }
             },
@@ -120,16 +120,31 @@ module.exports = class WebControl {
                  * @param {express.Response} res 
                  */
                 handler: (req, res) => {
-                    let serverIndex = parseInt(req.body['serverIndex']);
-                    let botIndex = parseInt(req.body['botIndex']);
-                    let selectedServer = config.servers[serverIndex];
-                    let selectedBot = config.bots[botIndex];
+                    let botId = req.body['botId'];
+                    let result = this.botSpawner.restartBot(botId);
 
-                    if (!selectedServer || !selectedBot)
-                        return this.sendError(res, { error: 'Please select a valid server and bot.' });
+                    if (result)
+                        this.sendSuccess(res, { status: 'OK' });
+                    else
+                        this.sendError(res, { error: 'Please select a valid server and bot.' });
+                }
+            },
+            {
+                method: 'POST',
+                url: '/stopBot',
+                /**
+                 * 
+                 * @param {express.Request} req 
+                 * @param {express.Response} res 
+                 */
+                handler: (req, res) => {
+                    let botId = req.body['botId'];
+                    let result = this.botSpawner.stopBot(botId);
 
-                    this.botSpawner.createBot(selectedServer, selectedBot);
-                    this.sendSuccess(res, { status: 'OK' });
+                    if (result)
+                        this.sendSuccess(res, { status: 'OK' });
+                    else
+                        this.sendError(res, { error: 'Please select a valid server and bot.' });
                 }
             },
             {

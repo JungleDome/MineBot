@@ -79,6 +79,8 @@ class BotSpawnerBot {
         'Error'
     ];
     logger = new Logger();
+    isRestarting = false;
+    isQuiting = false;
     REJOIN_DELAY = config['rejoinDelay'];
     CHATHISTORY_COUNT = config['retainTextHistoryLines'];
 
@@ -161,17 +163,25 @@ class BotSpawnerBot {
     }
 
     rejoinBot() {
+        if (this.isQuiting)
+            return;
+
         setTimeout(() => {
             this.createBot();
-        }, this.REJOIN_DELAY);
+            this.isRestarting = false;
+        }, this.isRestarting ? 1000 : this.REJOIN_DELAY);
     }
 
     restartBot() {
-        this.stopBot();
-        this.rejoinBot();
+        this.isRestarting = true;
+        this.bot.quit();
+        this.bot.logger.log("Restarting bot...");
     }
 
     stopBot() {
-        this.bot.end();
+        this.isQuiting = true;
+        this.bot.quit();
+        this.bot.logger.log("Stopping bot...");
+        process.exit();
     }
 };

@@ -86,16 +86,27 @@ module.exports = class BotSpawner {
 
     restartBot(botId) {
         let bot = this.getBot(botId);
+        if (!bot)
+            return false;
+
         bot.thread.postMessage({
             event: 'restart'
         });
+        return true;
     }
 
     stopBot(botId) {
         let bot = this.getBot(botId);
+        if (!bot)
+            return false;
+
         bot.thread.postMessage({
             event: 'stop'
         });
+
+        let botIndex = this.botThreads.findIndex(x => x.id == botId);
+        this.botThreads.splice(botIndex, 1);
+        return true;
     }
     //#endregion
 

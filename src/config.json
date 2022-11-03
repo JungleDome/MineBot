@@ -11,6 +11,12 @@
             "port": 25565,
             "cracked": true,
             "version": "1.18.2"
+        },
+        {
+            "host": "play.crispymc.net",
+            "port": 25565,
+            "cracked": true,
+            "version": "1.18.2"
         }
     ],
     "bots": [

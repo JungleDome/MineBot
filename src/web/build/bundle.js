@@ -2134,54 +2134,54 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[25] = list[i].timestamp;
-    	child_ctx[26] = list[i].level;
-    	child_ctx[27] = list[i].message;
-    	child_ctx[29] = i;
+    	child_ctx[26] = list[i].timestamp;
+    	child_ctx[27] = list[i].level;
+    	child_ctx[28] = list[i].message;
+    	child_ctx[30] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[25] = list[i].timestamp;
-    	child_ctx[27] = list[i].message;
-    	child_ctx[29] = i;
+    	child_ctx[26] = list[i].timestamp;
+    	child_ctx[28] = list[i].message;
+    	child_ctx[30] = i;
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[31] = list[i].id;
-    	child_ctx[32] = list[i].username;
-    	child_ctx[33] = list[i].server;
-    	child_ctx[34] = list[i].status;
-    	child_ctx[29] = i;
+    	child_ctx[32] = list[i].id;
+    	child_ctx[33] = list[i].username;
+    	child_ctx[34] = list[i].server;
+    	child_ctx[35] = list[i].status;
+    	child_ctx[30] = i;
     	return child_ctx;
     }
 
     function get_each_context_3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[32] = list[i].username;
-    	child_ctx[29] = i;
+    	child_ctx[33] = list[i].username;
+    	child_ctx[30] = i;
     	return child_ctx;
     }
 
     function get_each_context_4(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[37] = list[i].host;
-    	child_ctx[38] = list[i].port;
-    	child_ctx[39] = list[i].cracked;
-    	child_ctx[29] = i;
+    	child_ctx[38] = list[i].host;
+    	child_ctx[39] = list[i].port;
+    	child_ctx[40] = list[i].cracked;
+    	child_ctx[30] = i;
     	return child_ctx;
     }
 
-    // (131:6) {#each serverConfig.servers as { host, port, cracked }
+    // (150:6) {#each serverConfig.servers as { host, port, cracked }
     function create_each_block_4(ctx) {
     	let option;
-    	let t0_value = /*host*/ ctx[37] + "";
+    	let t0_value = /*host*/ ctx[38] + "";
     	let t0;
     	let t1;
-    	let t2_value = /*port*/ ctx[38] + "";
+    	let t2_value = /*port*/ ctx[39] + "";
     	let t2;
 
     	const block = {
@@ -2190,9 +2190,9 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = text(":");
     			t2 = text(t2_value);
-    			option.__value = /*i*/ ctx[29];
+    			option.__value = /*i*/ ctx[30];
     			option.value = option.__value;
-    			add_location(option, file, 131, 6, 3723);
+    			add_location(option, file, 150, 6, 4188);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -2201,8 +2201,8 @@ var app = (function () {
     			append_dev(option, t2);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*serverConfig*/ 4 && t0_value !== (t0_value = /*host*/ ctx[37] + "")) set_data_dev(t0, t0_value);
-    			if (dirty[0] & /*serverConfig*/ 4 && t2_value !== (t2_value = /*port*/ ctx[38] + "")) set_data_dev(t2, t2_value);
+    			if (dirty[0] & /*serverConfig*/ 4 && t0_value !== (t0_value = /*host*/ ctx[38] + "")) set_data_dev(t0, t0_value);
+    			if (dirty[0] & /*serverConfig*/ 4 && t2_value !== (t2_value = /*port*/ ctx[39] + "")) set_data_dev(t2, t2_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(option);
@@ -2213,33 +2213,33 @@ var app = (function () {
     		block,
     		id: create_each_block_4.name,
     		type: "each",
-    		source: "(131:6) {#each serverConfig.servers as { host, port, cracked }",
+    		source: "(150:6) {#each serverConfig.servers as { host, port, cracked }",
     		ctx
     	});
 
     	return block;
     }
 
-    // (151:6) {#each serverConfig.bots as { username }
+    // (170:6) {#each serverConfig.bots as { username }
     function create_each_block_3(ctx) {
     	let option;
-    	let t_value = /*username*/ ctx[32] + "";
+    	let t_value = /*username*/ ctx[33] + "";
     	let t;
 
     	const block = {
     		c: function create() {
     			option = element("option");
     			t = text(t_value);
-    			option.__value = /*i*/ ctx[29];
+    			option.__value = /*i*/ ctx[30];
     			option.value = option.__value;
-    			add_location(option, file, 151, 6, 4659);
+    			add_location(option, file, 170, 6, 5136);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
     			append_dev(option, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*serverConfig*/ 4 && t_value !== (t_value = /*username*/ ctx[32] + "")) set_data_dev(t, t_value);
+    			if (dirty[0] & /*serverConfig*/ 4 && t_value !== (t_value = /*username*/ ctx[33] + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(option);
@@ -2250,14 +2250,14 @@ var app = (function () {
     		block,
     		id: create_each_block_3.name,
     		type: "each",
-    		source: "(151:6) {#each serverConfig.bots as { username }",
+    		source: "(170:6) {#each serverConfig.bots as { username }",
     		ctx
     	});
 
     	return block;
     }
 
-    // (175:2) {:else}
+    // (194:2) {:else}
     function create_else_block_2(ctx) {
     	let each_1_anchor;
     	let each_value_2 = /*bots*/ ctx[3];
@@ -2284,7 +2284,7 @@ var app = (function () {
     			insert_dev(target, each_1_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*bots, selectedBotItem*/ 72) {
+    			if (dirty[0] & /*bots, selectedBotItem, restartBot, stopBot*/ 49224) {
     				each_value_2 = /*bots*/ ctx[3];
     				validate_each_argument(each_value_2);
     				let i;
@@ -2318,14 +2318,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(175:2) {:else}",
+    		source: "(194:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (170:2) {#if bots.length == 0}
+    // (189:2) {#if bots.length == 0}
     function create_if_block_2(ctx) {
     	let div;
     	let p0;
@@ -2340,10 +2340,10 @@ var app = (function () {
     			t1 = space();
     			p1 = element("p");
     			p1.textContent = "Perharps create one?";
-    			add_location(p0, file, 171, 3, 5401);
-    			add_location(p1, file, 172, 3, 5424);
-    			attr_dev(div, "class", "minebot-bot-item svelte-1pkwv9p");
-    			add_location(div, file, 170, 2, 5367);
+    			add_location(p0, file, 190, 3, 5916);
+    			add_location(p1, file, 191, 3, 5939);
+    			attr_dev(div, "class", "minebot-bot-item svelte-1g8u9qp");
+    			add_location(div, file, 189, 2, 5882);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2361,87 +2361,136 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(170:2) {#if bots.length == 0}",
+    		source: "(189:2) {#if bots.length == 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (176:2) {#each bots as { id,username,server,status }
+    // (195:2) {#each bots as { id,username,server,status }
     function create_each_block_2(ctx) {
-    	let div;
+    	let div1;
+    	let div0;
     	let span;
     	let t0;
     	let span_title_value;
     	let span_class_value;
     	let t1;
-    	let h6;
-    	let t2_value = /*username*/ ctx[32] + "";
+    	let svg0;
+    	let path0;
     	let t2;
+    	let svg1;
+    	let path1;
     	let t3;
-    	let p;
-    	let t4_value = /*server*/ ctx[33].host + "";
+    	let h6;
+    	let t4_value = /*username*/ ctx[33] + "";
     	let t4;
     	let t5;
-    	let t6_value = /*server*/ ctx[33].port + "";
+    	let p;
+    	let t6_value = /*server*/ ctx[34].host + "";
     	let t6;
     	let t7;
+    	let t8_value = /*server*/ ctx[34].port + "";
+    	let t8;
+    	let t9;
     	let mounted;
     	let dispose;
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[16](/*id*/ ctx[31], /*username*/ ctx[32], /*server*/ ctx[33], /*status*/ ctx[34]);
+    		return /*click_handler*/ ctx[18](/*id*/ ctx[32], /*username*/ ctx[33], /*server*/ ctx[34], /*status*/ ctx[35]);
     	}
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			div1 = element("div");
+    			div0 = element("div");
     			span = element("span");
     			t0 = text("⬤");
     			t1 = space();
-    			h6 = element("h6");
-    			t2 = text(t2_value);
+    			svg0 = svg_element("svg");
+    			path0 = svg_element("path");
+    			t2 = space();
+    			svg1 = svg_element("svg");
+    			path1 = svg_element("path");
     			t3 = space();
-    			p = element("p");
+    			h6 = element("h6");
     			t4 = text(t4_value);
-    			t5 = text(":");
+    			t5 = space();
+    			p = element("p");
     			t6 = text(t6_value);
-    			t7 = space();
-    			attr_dev(span, "title", span_title_value = /*status*/ ctx[34]);
+    			t7 = text(":");
+    			t8 = text(t8_value);
+    			t9 = space();
+    			attr_dev(span, "title", span_title_value = /*status*/ ctx[35]);
 
-    			attr_dev(span, "class", span_class_value = "float-right " + (/*status*/ ctx[34] == 'Normal'
+    			attr_dev(span, "class", span_class_value = /*status*/ ctx[35] == 'Normal'
     			? 'text-green-500'
-    			: /*status*/ ctx[34] == 'Kicked'
+    			: /*status*/ ctx[35] == 'Kicked'
     				? 'text-orange-600'
-    				: 'text-rose-600'));
+    				: 'text-rose-600');
 
-    			add_location(span, file, 178, 3, 5706);
+    			add_location(span, file, 198, 4, 6267);
+    			attr_dev(path0, "stroke-linecap", "round");
+    			attr_dev(path0, "stroke-linejoin", "round");
+    			attr_dev(path0, "d", "M6 18L18 6M6 6l12 12");
+    			add_location(path0, file, 201, 5, 6616);
+    			attr_dev(svg0, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg0, "fill", "none");
+    			attr_dev(svg0, "viewBox", "0 0 24 24");
+    			attr_dev(svg0, "stroke-width", "1.5");
+    			attr_dev(svg0, "stroke", "currentColor");
+    			attr_dev(svg0, "class", "w-4 h-4 cursor-pointer text-red-700");
+    			add_location(svg0, file, 199, 4, 6408);
+    			attr_dev(path1, "stroke-linecap", "round");
+    			attr_dev(path1, "stroke-linejoin", "round");
+    			attr_dev(path1, "d", "M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99");
+    			add_location(path1, file, 206, 5, 6934);
+    			attr_dev(svg1, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg1, "fill", "none");
+    			attr_dev(svg1, "viewBox", "0 0 24 24");
+    			attr_dev(svg1, "stroke-width", "1.5");
+    			attr_dev(svg1, "stroke", "currentColor");
+    			attr_dev(svg1, "class", "w-4 h-4 mt-1 cursor-pointer text-blue-500");
+    			add_location(svg1, file, 203, 4, 6712);
+    			attr_dev(div0, "class", "float-right text-orange-600");
+    			add_location(div0, file, 197, 3, 6221);
     			attr_dev(h6, "class", "font-bold");
-    			add_location(h6, file, 180, 3, 5862);
-    			add_location(p, file, 181, 3, 5903);
-    			attr_dev(div, "class", "minebot-bot-item cursor-pointer svelte-1pkwv9p");
-    			toggle_class(div, "selected", /*id*/ ctx[31] == /*selectedBotItem*/ ctx[6]?.id);
-    			add_location(div, file, 176, 2, 5524);
+    			add_location(h6, file, 210, 3, 7188);
+    			add_location(p, file, 211, 3, 7229);
+    			attr_dev(div1, "class", "minebot-bot-item cursor-pointer svelte-1g8u9qp");
+    			toggle_class(div1, "selected", /*id*/ ctx[32] == /*selectedBotItem*/ ctx[6]?.id);
+    			add_location(div1, file, 195, 2, 6039);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, span);
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div0, span);
     			append_dev(span, t0);
-    			append_dev(div, t1);
-    			append_dev(div, h6);
-    			append_dev(h6, t2);
-    			append_dev(div, t3);
-    			append_dev(div, p);
-    			append_dev(p, t4);
-    			append_dev(p, t5);
+    			append_dev(div0, t1);
+    			append_dev(div0, svg0);
+    			append_dev(svg0, path0);
+    			append_dev(div0, t2);
+    			append_dev(div0, svg1);
+    			append_dev(svg1, path1);
+    			append_dev(div1, t3);
+    			append_dev(div1, h6);
+    			append_dev(h6, t4);
+    			append_dev(div1, t5);
+    			append_dev(div1, p);
     			append_dev(p, t6);
-    			append_dev(div, t7);
+    			append_dev(p, t7);
+    			append_dev(p, t8);
+    			append_dev(div1, t9);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(div, "click", click_handler, false, false, false),
-    					listen_dev(div, "keydown", keydown_handler, false, false, false)
+    					listen_dev(svg0, "click", /*stopBot*/ ctx[14], false, false, false),
+    					listen_dev(svg0, "keydown", keydown_handler, false, false, false),
+    					listen_dev(svg1, "click", /*restartBot*/ ctx[15], false, false, false),
+    					listen_dev(svg1, "keydown", keydown_handler_1, false, false, false),
+    					listen_dev(div1, "click", click_handler, false, false, false),
+    					listen_dev(div1, "keydown", keydown_handler_2, false, false, false)
     				];
 
     				mounted = true;
@@ -2450,28 +2499,28 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty[0] & /*bots*/ 8 && span_title_value !== (span_title_value = /*status*/ ctx[34])) {
+    			if (dirty[0] & /*bots*/ 8 && span_title_value !== (span_title_value = /*status*/ ctx[35])) {
     				attr_dev(span, "title", span_title_value);
     			}
 
-    			if (dirty[0] & /*bots*/ 8 && span_class_value !== (span_class_value = "float-right " + (/*status*/ ctx[34] == 'Normal'
+    			if (dirty[0] & /*bots*/ 8 && span_class_value !== (span_class_value = /*status*/ ctx[35] == 'Normal'
     			? 'text-green-500'
-    			: /*status*/ ctx[34] == 'Kicked'
+    			: /*status*/ ctx[35] == 'Kicked'
     				? 'text-orange-600'
-    				: 'text-rose-600'))) {
+    				: 'text-rose-600')) {
     				attr_dev(span, "class", span_class_value);
     			}
 
-    			if (dirty[0] & /*bots*/ 8 && t2_value !== (t2_value = /*username*/ ctx[32] + "")) set_data_dev(t2, t2_value);
-    			if (dirty[0] & /*bots*/ 8 && t4_value !== (t4_value = /*server*/ ctx[33].host + "")) set_data_dev(t4, t4_value);
-    			if (dirty[0] & /*bots*/ 8 && t6_value !== (t6_value = /*server*/ ctx[33].port + "")) set_data_dev(t6, t6_value);
+    			if (dirty[0] & /*bots*/ 8 && t4_value !== (t4_value = /*username*/ ctx[33] + "")) set_data_dev(t4, t4_value);
+    			if (dirty[0] & /*bots*/ 8 && t6_value !== (t6_value = /*server*/ ctx[34].host + "")) set_data_dev(t6, t6_value);
+    			if (dirty[0] & /*bots*/ 8 && t8_value !== (t8_value = /*server*/ ctx[34].port + "")) set_data_dev(t8, t8_value);
 
     			if (dirty[0] & /*bots, selectedBotItem*/ 72) {
-    				toggle_class(div, "selected", /*id*/ ctx[31] == /*selectedBotItem*/ ctx[6]?.id);
+    				toggle_class(div1, "selected", /*id*/ ctx[32] == /*selectedBotItem*/ ctx[6]?.id);
     			}
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div1);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -2481,14 +2530,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(176:2) {#each bots as { id,username,server,status }",
+    		source: "(195:2) {#each bots as { id,username,server,status }",
     		ctx
     	});
 
     	return block;
     }
 
-    // (204:4) {:else}
+    // (234:4) {:else}
     function create_else_block_1(ctx) {
     	let each_1_anchor;
     	let each_value_1 = /*chatHistory*/ ctx[4];
@@ -2549,14 +2598,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(204:4) {:else}",
+    		source: "(234:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (202:4) {#if chatHistory.length == 0}
+    // (232:4) {#if chatHistory.length == 0}
     function create_if_block_1(ctx) {
     	let p;
 
@@ -2564,7 +2613,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "No chat history yet.";
-    			add_location(p, file, 202, 4, 6674);
+    			add_location(p, file, 232, 4, 8000);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -2579,21 +2628,21 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(202:4) {#if chatHistory.length == 0}",
+    		source: "(232:4) {#if chatHistory.length == 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (205:4) {#each chatHistory as { timestamp, message }
+    // (235:4) {#each chatHistory as { timestamp, message }
     function create_each_block_1(ctx) {
     	let p;
     	let t0;
-    	let t1_value = displayDateTime(/*timestamp*/ ctx[25]) + "";
+    	let t1_value = displayDateTime(/*timestamp*/ ctx[26]) + "";
     	let t1;
     	let t2;
-    	let t3_value = /*message*/ ctx[27] + "";
+    	let t3_value = /*message*/ ctx[28] + "";
     	let t3;
 
     	const block = {
@@ -2603,7 +2652,7 @@ var app = (function () {
     			t1 = text(t1_value);
     			t2 = text("] ");
     			t3 = text(t3_value);
-    			add_location(p, file, 205, 4, 6771);
+    			add_location(p, file, 235, 4, 8097);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -2613,8 +2662,8 @@ var app = (function () {
     			append_dev(p, t3);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*chatHistory*/ 16 && t1_value !== (t1_value = displayDateTime(/*timestamp*/ ctx[25]) + "")) set_data_dev(t1, t1_value);
-    			if (dirty[0] & /*chatHistory*/ 16 && t3_value !== (t3_value = /*message*/ ctx[27] + "")) set_data_dev(t3, t3_value);
+    			if (dirty[0] & /*chatHistory*/ 16 && t1_value !== (t1_value = displayDateTime(/*timestamp*/ ctx[26]) + "")) set_data_dev(t1, t1_value);
+    			if (dirty[0] & /*chatHistory*/ 16 && t3_value !== (t3_value = /*message*/ ctx[28] + "")) set_data_dev(t3, t3_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
@@ -2625,14 +2674,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(205:4) {#each chatHistory as { timestamp, message }",
+    		source: "(235:4) {#each chatHistory as { timestamp, message }",
     		ctx
     	});
 
     	return block;
     }
 
-    // (215:4) {:else}
+    // (245:4) {:else}
     function create_else_block(ctx) {
     	let each_1_anchor;
     	let each_value = /*logHistory*/ ctx[5];
@@ -2693,14 +2742,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(215:4) {:else}",
+    		source: "(245:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (213:4) {#if logHistory.length == 0}
+    // (243:4) {#if logHistory.length == 0}
     function create_if_block(ctx) {
     	let p;
 
@@ -2708,7 +2757,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "No log history yet.";
-    			add_location(p, file, 213, 4, 6982);
+    			add_location(p, file, 243, 4, 8308);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -2723,23 +2772,23 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(213:4) {#if logHistory.length == 0}",
+    		source: "(243:4) {#if logHistory.length == 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (216:4) {#each logHistory as { timestamp, level, message }
+    // (246:4) {#each logHistory as { timestamp, level, message }
     function create_each_block(ctx) {
     	let p;
-    	let t0_value = displayDateTime(/*timestamp*/ ctx[25]) + "";
+    	let t0_value = displayDateTime(/*timestamp*/ ctx[26]) + "";
     	let t0;
     	let t1;
-    	let t2_value = /*level*/ ctx[26] + "";
+    	let t2_value = /*level*/ ctx[27] + "";
     	let t2;
     	let t3;
-    	let t4_value = /*message*/ ctx[27] + "";
+    	let t4_value = /*message*/ ctx[28] + "";
     	let t4;
 
     	const block = {
@@ -2750,7 +2799,7 @@ var app = (function () {
     			t2 = text(t2_value);
     			t3 = text("] > ");
     			t4 = text(t4_value);
-    			add_location(p, file, 216, 4, 7084);
+    			add_location(p, file, 246, 4, 8410);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -2761,9 +2810,9 @@ var app = (function () {
     			append_dev(p, t4);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*logHistory*/ 32 && t0_value !== (t0_value = displayDateTime(/*timestamp*/ ctx[25]) + "")) set_data_dev(t0, t0_value);
-    			if (dirty[0] & /*logHistory*/ 32 && t2_value !== (t2_value = /*level*/ ctx[26] + "")) set_data_dev(t2, t2_value);
-    			if (dirty[0] & /*logHistory*/ 32 && t4_value !== (t4_value = /*message*/ ctx[27] + "")) set_data_dev(t4, t4_value);
+    			if (dirty[0] & /*logHistory*/ 32 && t0_value !== (t0_value = displayDateTime(/*timestamp*/ ctx[26]) + "")) set_data_dev(t0, t0_value);
+    			if (dirty[0] & /*logHistory*/ 32 && t2_value !== (t2_value = /*level*/ ctx[27] + "")) set_data_dev(t2, t2_value);
+    			if (dirty[0] & /*logHistory*/ 32 && t4_value !== (t4_value = /*message*/ ctx[28] + "")) set_data_dev(t4, t4_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
@@ -2774,7 +2823,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(216:4) {#each logHistory as { timestamp, level, message }",
+    		source: "(246:4) {#each logHistory as { timestamp, level, message }",
     		ctx
     	});
 
@@ -2846,8 +2895,6 @@ var app = (function () {
     	let t27;
     	let button1_disabled_value;
     	let t28;
-    	let button2;
-    	let t30;
     	let sveltetoast;
     	let current;
     	let mounted;
@@ -2982,112 +3029,107 @@ var app = (function () {
     			button1 = element("button");
     			t27 = text("Send");
     			t28 = space();
-    			button2 = element("button");
-    			button2.textContent = "EMIT TOAST";
-    			t30 = space();
     			create_component(sveltetoast.$$.fragment);
-    			attr_dev(h1, "class", "text-orange-600 svelte-1pkwv9p");
-    			add_location(h1, file, 111, 1, 2745);
+    			attr_dev(h1, "class", "text-orange-600 text-xl lg:text-6xl font-thin uppercase svelte-1g8u9qp");
+    			add_location(h1, file, 130, 1, 3158);
 
     			attr_dev(span0, "class", span0_class_value = "shadow " + (/*botStatus*/ ctx[1] == 'Online'
     			? 'text-green-500'
     			: 'text-rose-600'));
 
-    			add_location(span0, file, 115, 24, 3025);
+    			add_location(span0, file, 134, 24, 3478);
     			attr_dev(span1, "class", "shadow rounded-full bg-orange-300 uppercase px-2 py-1 text-xs font-normal tracking-wide mr-3");
-    			add_location(span1, file, 114, 3, 2893);
-    			add_location(div0, file, 113, 2, 2884);
+    			add_location(span1, file, 133, 3, 3346);
+    			add_location(div0, file, 132, 2, 3337);
     			attr_dev(label0, "class", "text-gray-700 text-sm font-bold mb-2");
     			attr_dev(label0, "for", "selectedServer");
-    			add_location(label0, file, 122, 4, 3216);
+    			add_location(label0, file, 141, 4, 3681);
     			option0.__value = "-1";
     			option0.value = option0.__value;
-    			add_location(option0, file, 129, 6, 3606);
+    			add_location(option0, file, 148, 6, 4071);
     			attr_dev(select0, "class", "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-1 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500");
     			attr_dev(select0, "id", "selectedServer");
-    			if (/*selectedServer*/ ctx[10] === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[14].call(select0));
-    			add_location(select0, file, 126, 5, 3352);
+    			if (/*selectedServer*/ ctx[10] === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[16].call(select0));
+    			add_location(select0, file, 145, 5, 3817);
     			attr_dev(path0, "d", "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z");
-    			add_location(path0, file, 136, 7, 3999);
+    			add_location(path0, file, 155, 7, 4464);
     			attr_dev(svg0, "class", "fill-current h-4 w-4");
     			attr_dev(svg0, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg0, "viewBox", "0 0 20 20");
-    			add_location(svg0, file, 135, 6, 3902);
+    			add_location(svg0, file, 154, 6, 4367);
     			attr_dev(div1, "class", "pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700");
-    			add_location(div1, file, 134, 5, 3798);
+    			add_location(div1, file, 153, 5, 4263);
     			attr_dev(div2, "class", "relative");
-    			add_location(div2, file, 125, 4, 3324);
-    			attr_dev(div3, "class", "inline-block w-1/4 mr-2");
-    			add_location(div3, file, 121, 3, 3174);
+    			add_location(div2, file, 144, 4, 3789);
+    			attr_dev(div3, "class", "inline-block w-1/2 lg:w-1/4 lg:mr-2");
+    			add_location(div3, file, 140, 3, 3627);
     			attr_dev(label1, "class", "text-gray-700 text-sm font-bold mb-2");
     			attr_dev(label1, "for", "selectedBot");
-    			add_location(label1, file, 142, 4, 4178);
+    			add_location(label1, file, 161, 4, 4655);
     			option1.__value = "-1";
     			option1.value = option1.__value;
-    			add_location(option1, file, 149, 6, 4556);
+    			add_location(option1, file, 168, 6, 5033);
     			attr_dev(select1, "class", "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-1 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500");
     			attr_dev(select1, "id", "selectedBot");
-    			if (/*selectedBot*/ ctx[9] === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[15].call(select1));
-    			add_location(select1, file, 146, 5, 4308);
+    			if (/*selectedBot*/ ctx[9] === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[17].call(select1));
+    			add_location(select1, file, 165, 5, 4785);
     			attr_dev(path1, "d", "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z");
-    			add_location(path1, file, 156, 7, 4932);
+    			add_location(path1, file, 175, 7, 5409);
     			attr_dev(svg1, "class", "fill-current h-4 w-4");
     			attr_dev(svg1, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg1, "viewBox", "0 0 20 20");
-    			add_location(svg1, file, 155, 6, 4835);
+    			add_location(svg1, file, 174, 6, 5312);
     			attr_dev(div4, "class", "pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700");
-    			add_location(div4, file, 154, 5, 4731);
+    			add_location(div4, file, 173, 5, 5208);
     			attr_dev(div5, "class", "relative");
-    			add_location(div5, file, 145, 4, 4280);
-    			attr_dev(div6, "class", "inline-block w-1/4 mr-2");
-    			add_location(div6, file, 141, 3, 4136);
-    			attr_dev(button0, "class", "minebot-button-primary svelte-1pkwv9p");
+    			add_location(div5, file, 164, 4, 4757);
+    			attr_dev(div6, "class", "inline-block w-1/2 lg:w-1/4 lg:mr-2");
+    			add_location(div6, file, 160, 3, 4601);
+    			attr_dev(button0, "class", "minebot-button-primary svelte-1g8u9qp");
     			button0.disabled = button0_disabled_value = /*selectedBot*/ ctx[9] == -1 || /*selectedServer*/ ctx[10] == -1;
-    			add_location(button0, file, 162, 4, 5112);
-    			attr_dev(div7, "class", "inline-block w-auto mr-2");
-    			add_location(div7, file, 161, 3, 5069);
+    			add_location(button0, file, 181, 4, 5612);
+    			attr_dev(div7, "class", "block mt-2 lg:mt-0 lg:inline-block w-auto mr-2 ");
+    			add_location(div7, file, 180, 3, 5546);
     			attr_dev(div8, "class", "align-center");
-    			add_location(div8, file, 120, 2, 3144);
+    			add_location(div8, file, 139, 2, 3597);
     			attr_dev(div9, "class", "container mx-auto w-99 py-2 bg-white shadow rounded grid grid-cols-1");
-    			add_location(div9, file, 112, 1, 2799);
-    			attr_dev(div10, "class", "mx-auto w-full container grid grid-cols-6 mt-4 gap-1");
-    			add_location(div10, file, 168, 1, 5273);
-    			add_location(p0, file, 191, 4, 6231);
-    			attr_dev(div11, "class", "minebot-container basis-0 px-4 py-2 cursor-pointer svelte-1pkwv9p");
+    			add_location(div9, file, 131, 1, 3252);
+    			attr_dev(div10, "class", "mx-auto w-full container grid grid-cols-2 lg:grid-cols-6 mt-4 gap-1");
+    			add_location(div10, file, 187, 1, 5773);
+    			add_location(p0, file, 221, 4, 7557);
+    			attr_dev(div11, "class", "minebot-container basis-0 px-4 py-2 cursor-pointer svelte-1g8u9qp");
     			toggle_class(div11, "selected", /*displayChatTab*/ ctx[7]);
-    			add_location(div11, file, 189, 3, 6046);
-    			add_location(p1, file, 195, 4, 6440);
-    			attr_dev(div12, "class", "minebot-container basis-0 px-4 py-2 cursor-pointer svelte-1pkwv9p");
+    			add_location(div11, file, 219, 3, 7372);
+    			add_location(p1, file, 225, 4, 7766);
+    			attr_dev(div12, "class", "minebot-container basis-0 px-4 py-2 cursor-pointer svelte-1g8u9qp");
     			toggle_class(div12, "selected", /*displayLogTab*/ ctx[8]);
-    			add_location(div12, file, 193, 3, 6256);
+    			add_location(div12, file, 223, 3, 7582);
     			attr_dev(div13, "class", "flex flex-none");
-    			add_location(div13, file, 188, 2, 6014);
+    			add_location(div13, file, 218, 2, 7340);
     			attr_dev(div14, "class", "overflow-y-auto h-25 text-left px-1 max-h-96");
     			toggle_class(div14, "hidden", /*displayLogTab*/ ctx[8]);
-    			add_location(div14, file, 200, 3, 6548);
+    			add_location(div14, file, 230, 3, 7874);
     			attr_dev(div15, "class", "overflow-y-auto h-25 text-left px-1 max-h-96");
     			toggle_class(div15, "hidden", /*displayChatTab*/ ctx[7]);
-    			add_location(div15, file, 211, 3, 6856);
+    			add_location(div15, file, 241, 3, 8182);
     			attr_dev(input, "type", "text");
-    			attr_dev(input, "class", "mr-1 svelte-1pkwv9p");
+    			attr_dev(input, "class", "mr-1 svelte-1g8u9qp");
     			attr_dev(input, "id", "command");
     			attr_dev(input, "placeholder", "Type your command here. Type 'help' for command list.");
-    			add_location(input, file, 225, 5, 7268);
-    			attr_dev(button1, "class", "minebot-button-primary svelte-1pkwv9p");
+    			add_location(input, file, 255, 5, 8594);
+    			attr_dev(button1, "class", "minebot-button-primary svelte-1g8u9qp");
     			button1.disabled = button1_disabled_value = /*command*/ ctx[0] == '';
     			attr_dev(button1, "type", "submit");
-    			add_location(button1, file, 227, 5, 7414);
+    			add_location(button1, file, 257, 5, 8740);
     			attr_dev(div16, "class", "flex flex-row mt-1");
-    			add_location(div16, file, 224, 4, 7230);
-    			add_location(form, file, 223, 3, 7180);
+    			add_location(div16, file, 254, 4, 8556);
+    			add_location(form, file, 253, 3, 8506);
     			attr_dev(div17, "class", "w-full bg-white shadow rounded py-1 px-1 grid grid-cols-1");
-    			add_location(div17, file, 199, 2, 6473);
+    			add_location(div17, file, 229, 2, 7799);
     			attr_dev(div18, "class", "container mx-auto mt-4");
-    			add_location(div18, file, 187, 1, 5975);
-    			attr_dev(button2, "class", "minebot-button-primary svelte-1pkwv9p");
-    			add_location(button2, file, 233, 1, 7544);
-    			attr_dev(main, "class", "h-screen bg-gradient-to-r from-cyan-100 to-slate-300 place-content-center svelte-1pkwv9p");
-    			add_location(main, file, 109, 0, 2630);
+    			add_location(div18, file, 217, 1, 7301);
+    			attr_dev(main, "class", "h-screen w-screen bg-gradient-to-r from-cyan-100 to-slate-300 place-content-center px-2 lg:px-0 svelte-1g8u9qp");
+    			add_location(main, file, 129, 0, 3046);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3170,23 +3212,20 @@ var app = (function () {
     			append_dev(div16, button1);
     			append_dev(button1, t27);
     			append_dev(main, t28);
-    			append_dev(main, button2);
-    			append_dev(main, t30);
     			mount_component(sveltetoast, main, null);
     			current = true;
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(select0, "change", /*select0_change_handler*/ ctx[14]),
-    					listen_dev(select1, "change", /*select1_change_handler*/ ctx[15]),
+    					listen_dev(select0, "change", /*select0_change_handler*/ ctx[16]),
+    					listen_dev(select1, "change", /*select1_change_handler*/ ctx[17]),
     					listen_dev(button0, "click", /*startBot*/ ctx[13], false, false, false),
-    					listen_dev(div11, "click", /*click_handler_1*/ ctx[17], false, false, false),
-    					listen_dev(div11, "keydown", keydown_handler_1, false, false, false),
-    					listen_dev(div12, "click", /*click_handler_2*/ ctx[18], false, false, false),
-    					listen_dev(div12, "keydown", keydown_handler_2, false, false, false),
-    					listen_dev(input, "input", /*input_input_handler*/ ctx[19]),
-    					listen_dev(form, "submit", prevent_default(/*sendCommand*/ ctx[12]), false, true, false),
-    					listen_dev(button2, "click", /*click_handler_3*/ ctx[20], false, false, false)
+    					listen_dev(div11, "click", /*click_handler_1*/ ctx[19], false, false, false),
+    					listen_dev(div11, "keydown", keydown_handler_3, false, false, false),
+    					listen_dev(div12, "click", /*click_handler_2*/ ctx[20], false, false, false),
+    					listen_dev(div12, "keydown", keydown_handler_4, false, false, false),
+    					listen_dev(input, "input", /*input_input_handler*/ ctx[21]),
+    					listen_dev(form, "submit", prevent_default(/*sendCommand*/ ctx[12]), false, true, false)
     				];
 
     				mounted = true;
@@ -3383,6 +3422,14 @@ var app = (function () {
     	
     };
 
+    const keydown_handler_3 = () => {
+    	
+    };
+
+    const keydown_handler_4 = () => {
+    	
+    };
+
     function instance($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
@@ -3453,6 +3500,26 @@ var app = (function () {
     		});
     	};
 
+    	let stopBot = () => {
+    		if (!(selectedBotItem && selectedBotItem.id)) return;
+
+    		sendRequest('stopBot', 'POST', { botId: selectedBotItem.id }).then(x => {
+    			
+    		}).catch(err => {
+    			error(err);
+    		});
+    	};
+
+    	let restartBot = () => {
+    		if (!(selectedBotItem && selectedBotItem.id)) return;
+
+    		sendRequest('restartBot', 'POST', { botId: selectedBotItem.id }).then(x => {
+    			
+    		}).catch(err => {
+    			error(err);
+    		});
+    	};
+
     	let sendRequest = (uri, method, content) => {
     		let xhrMethod = method ?? 'GET';
 
@@ -3517,8 +3584,6 @@ var app = (function () {
     		$$invalidate(0, command);
     	}
 
-    	const click_handler_3 = () => success('Hello world!');
-
     	$$self.$capture_state = () => ({
     		SvelteToast,
     		SvelteToastOptions,
@@ -3543,6 +3608,8 @@ var app = (function () {
     		getInfo,
     		getCurrentBot,
     		startBot,
+    		stopBot,
+    		restartBot,
     		sendRequest
     	});
 
@@ -3563,6 +3630,8 @@ var app = (function () {
     		if ('getInfo' in $$props) getInfo = $$props.getInfo;
     		if ('getCurrentBot' in $$props) getCurrentBot = $$props.getCurrentBot;
     		if ('startBot' in $$props) $$invalidate(13, startBot = $$props.startBot);
+    		if ('stopBot' in $$props) $$invalidate(14, stopBot = $$props.stopBot);
+    		if ('restartBot' in $$props) $$invalidate(15, restartBot = $$props.restartBot);
     		if ('sendRequest' in $$props) sendRequest = $$props.sendRequest;
     	};
 
@@ -3585,13 +3654,14 @@ var app = (function () {
     		SvelteToastOptions,
     		sendCommand,
     		startBot,
+    		stopBot,
+    		restartBot,
     		select0_change_handler,
     		select1_change_handler,
     		click_handler,
     		click_handler_1,
     		click_handler_2,
-    		input_input_handler,
-    		click_handler_3
+    		input_input_handler
     	];
     }
 

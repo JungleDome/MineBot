@@ -77,6 +77,26 @@
 		});
 	};
 
+	let stopBot = () => {
+		if (!(selectedBotItem && selectedBotItem.id))
+			return;
+
+		sendRequest('stopBot', 'POST', { botId: selectedBotItem.id }).then(x => {
+		}).catch(err => {
+			error(err);
+		});
+	};
+
+	let restartBot = () => {
+		if (!(selectedBotItem && selectedBotItem.id))
+			return;
+
+		sendRequest('restartBot', 'POST', { botId: selectedBotItem.id }).then(x => {
+		}).catch(err => {
+			error(err);
+		});
+	};
+
 	let sendRequest = (uri, method, content) => {
 		let xhrMethod = method ?? 'GET';
 
@@ -107,9 +127,8 @@
 
 </script>
 
-<main class="h-screen bg-gradient-to-r from-cyan-100 to-slate-300 place-content-center">
-	<!-- <Tailwindcss/> -->
-	<h1 class="text-orange-600">Welcome to MineBot!</h1>
+<main class="h-screen w-screen bg-gradient-to-r from-cyan-100 to-slate-300 place-content-center px-2 lg:px-0">
+	<h1 class="text-orange-600 text-xl lg:text-6xl font-thin uppercase">Welcome to MineBot!</h1>
 	<div class="container mx-auto w-99 py-2 bg-white shadow rounded grid grid-cols-1">
 		<div>
 			<span class="shadow rounded-full bg-orange-300 uppercase px-2 py-1 text-xs font-normal tracking-wide mr-3">
@@ -119,7 +138,7 @@
 		</div>
 
 		<div class="align-center">
-			<div class="inline-block w-1/4 mr-2">
+			<div class="inline-block w-1/2 lg:w-1/4 lg:mr-2">
 				<label class="text-gray-700 text-sm font-bold mb-2" for="selectedServer">
 					Server List
 				</label>
@@ -139,7 +158,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="inline-block w-1/4 mr-2">
+			<div class="inline-block w-1/2 lg:w-1/4 lg:mr-2">
 				<label class="text-gray-700 text-sm font-bold mb-2" for="selectedBot">
 					Bot List
 				</label>
@@ -159,14 +178,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="inline-block w-auto mr-2">
+			<div class="block mt-2 lg:mt-0 lg:inline-block w-auto mr-2 ">
 				<button class="minebot-button-primary" disabled={selectedBot==-1 || selectedServer==-1}
 					on:click={startBot}>Start Bot</button>
 			</div>
 		</div>
 	</div>
 
-	<div class="mx-auto w-full container grid grid-cols-6 mt-4 gap-1">
+	<div class="mx-auto w-full container grid grid-cols-2 lg:grid-cols-6 mt-4 gap-1">
 		{#if bots.length == 0}
 		<div class="minebot-bot-item">
 			<p>No bots yet.</p>
@@ -176,8 +195,19 @@
 		{#each bots as { id,username,server,status }, i}
 		<div class="minebot-bot-item cursor-pointer" class:selected={id==selectedBotItem?.id} on:click={()=>
 			{selectedBotItem = { id,username,server,status };}} on:keydown={() => {}}>
-			<span title={status}
-				class="float-right {status == 'Normal' ? 'text-green-500' : status == 'Kicked' ? 'text-orange-600' : 'text-rose-600'}">⬤</span>
+			<div class="float-right text-orange-600">
+				<span title={status} class="{status == 'Normal' ? 'text-green-500' : status == 'Kicked' ? 'text-orange-600' : 'text-rose-600'}">⬤</span>
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+					stroke="currentColor" class="w-4 h-4 cursor-pointer text-red-700" on:click={stopBot} on:keydown={()=> {}}>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+					stroke="currentColor" class="w-4 h-4 mt-1 cursor-pointer text-blue-500" on:click={restartBot} on:keydown={()=>
+					{}}>
+					<path stroke-linecap="round" stroke-linejoin="round"
+						d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+				</svg>
+			</div>
 			<h6 class="font-bold">{username}</h6>
 			<p>{server.host}:{server.port}</p>
 		</div>
@@ -231,29 +261,18 @@
 		</div>
 	</div>
 
-	<button class="minebot-button-primary" on:click={()=> success('Hello world!')}>EMIT TOAST</button>
+	<!-- <button class="minebot-button-primary" on:click={()=> success('Hello world!')}>EMIT TOAST</button> -->
 	<SvelteToast {SvelteToastOptions} />
 </main>
 
 <style>
 	main {
 		text-align: center;
-		padding: 1em;
-		max-width: 240px;
 		margin: 0 auto;
 	}
 
 	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+		line-height: 1.5;
 	}
 
 	.minebot-button {
@@ -308,6 +327,7 @@
 		@apply minebot-container;
 		@apply px-4;
 		@apply py-2;
+		@apply pr-1;
 		@apply text-left;
 	}
 
