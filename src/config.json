@@ -27,12 +27,16 @@
         {
             "username": "Ethanord2lm",
             "offlinePassword": "sasasasa"
+        },
+        {
+            "username": "Urzeda",
+            "offlinePassword": "sasasa"
         }
     ],
     "webServer": {
         "port": 8081
     },
-    "retainTextHistoryLines": 100,
-    "retainLogHistoryLines": 400,
+    "chatHistoryLimit": 100,
+    "logHistoryLimit": 400,
     "rejoinDelay": 60000
 }

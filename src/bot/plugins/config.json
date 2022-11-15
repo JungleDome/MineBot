@@ -13,5 +13,10 @@
             "delay 1000",
             "say /server survival"
         ]
+    },
+    "play.crispymc.net": {
+        "onJoinCommand": [
+            "join \"Server Selector\" SANS"
+        ]
     }
 }

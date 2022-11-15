@@ -31,6 +31,9 @@ interface BotSpawnerBot {
     logHistory: LogHistory[]
     status: 'Normal' | 'Kicked' | 'End' | 'Error'
     thread: Worker
+    memoryUsage: NodeJS.MemoryUsage
+    uptime: number
+    _uptimeTimer: NodeJS.Timer
 }
 
 interface TextHistory {

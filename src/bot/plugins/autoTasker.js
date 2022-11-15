@@ -24,15 +24,15 @@ module.exports = (bot, options) => {
     }
 
     bot.on('serverAuth', debounce(async () => {
-        bot.logger.log('Running auto tasker tasks...');
         let taskerConfig = config[options.autoTasker.taskId];
         if (!taskerConfig)
-            return;
-
+        return;
+        
         let onJoinTaskList = taskerConfig['onJoinCommand'];
         if (!onJoinTaskList)
-            return;
-
+        return;
+        
+        bot.logger.log('Running auto tasker tasks...');
         for await (let task of onJoinTaskList) {
             bot.logger.log(`Running task: ${task}`);
             let customCommand = processTaskCommand(task);
