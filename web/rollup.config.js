@@ -35,7 +35,7 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: '../src/web/build/bundle.js'
+		file: '../public/build/bundle.js'
 	},
 	plugins: [
 		svelte({
@@ -69,7 +69,7 @@ export default {
 
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production
-		!production && livereload('../src/web'),
+		!production && livereload('../src/web/public'),
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
@@ -77,5 +77,12 @@ export default {
 	],
 	watch: {
 		clearScreen: true
+	},
+	onwarn: (warning, handler) => {
+		// e.g. I don't care about screen readers -> please DON'T DO THIS!!!
+		if (warning.pluginCode === 'a11y-invalid-attribute' || warning.pluginCode === 'unused-export-let') return;
+
+		// let Rollup handle all other warnings normally
+		handler(warning);
 	}
 };
