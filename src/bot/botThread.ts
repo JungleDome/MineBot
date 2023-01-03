@@ -166,7 +166,11 @@ export default class BotThread extends EventEmitter {
 
     restartBot() {
         this.isRestarting = true;
-        this.bot.quit();
+        if (this.status == Status.END) {
+            this.rejoinBot()
+        } else {
+            this.bot.quit();
+        }
         this.logger.log("Restarting bot...");
     }
 
