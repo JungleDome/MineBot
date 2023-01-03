@@ -16,6 +16,11 @@
     },
     "play.crispymc.net": {
         "onJoinCommand": [
+            "rejoinGameServer on",
+            "delay 5000",
+            "join \"Server Selector\" SANS"
+        ],
+        "onWorldChangeCommand": [
             "join \"Server Selector\" SANS"
         ]
     }

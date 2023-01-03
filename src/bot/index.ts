@@ -33,7 +33,7 @@ WorkerThread.parentPort.on('message', (message) => {
                 });
             });
             bot.on('createBotFailed', ({ errorMessage }) => {
-                console.log('create bot failed : index')
+                console.log('create bot failed: index')
                 WorkerThread.parentPort.postMessage({
                     event: 'createBotFailed',
                     payload: {
