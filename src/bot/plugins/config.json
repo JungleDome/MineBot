@@ -18,10 +18,10 @@
         "onJoinCommand": [
             "rejoinGameServer on",
             "delay 5000",
-            "join \"Server Selector\" SANS"
+            "join \"Server Selector\" ONE"
         ],
         "onWorldChangeCommand": [
-            "join \"Server Selector\" SANS"
+            "join \"Server Selector\" ONE"
         ]
     }
 }
